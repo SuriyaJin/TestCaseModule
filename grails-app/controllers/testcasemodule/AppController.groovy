@@ -75,9 +75,20 @@ class AppController {
         session["fileName"] = WebTestEngine.fileName	
     }
     
+    def showPreview() {
+        def fileName = session["fileName"]
+        def filePath = "/opt/Testcasefiles/"+fileName;
+        def file = new File(filePath)
+        def testCode = file.text.replace("\n","<br/>").replace(" ","&nbsp;")
+        if(file.exists()) {
+            response.setContentType("application/text")
+            render testCode
+        }
+    }
+    
     def download() {
-        String fileName = session["fileName"]
-        String filePath = "/opt/Testcasefiles/"+fileName;
+        def fileName = session["fileName"]
+        def filePath = "/opt/Testcasefiles/"+fileName;
         File file = new File(filePath);
         if (file.exists()) {
             response.setContentType("application/octet-stream")

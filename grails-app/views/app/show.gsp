@@ -58,10 +58,14 @@
             }
 
             .panel-table .panel-body .table-bordered>tbody>tr>td {
-            line-height: 34px;
+                line-height: 34px;
             }
             #testTable{
-            width:100%;
+                width:100%;
+            }
+            
+            #preview{
+                visibility:hidden;
             }
         </style>
     </head>
@@ -73,7 +77,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-
                         <div class="panel panel-default panel-table">
                             <div class="panel-heading">
                                 <div class="row">
@@ -122,7 +125,8 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-success" style="align: right;" onclick="generateTestCase()">Finish</button>
+                    <button class="btn btn-success" style="align: right;width:10%;" onclick="generateTestCase()">Finish</button>
+                    <button id = "preview" class="btn btn-warning" style="align: right;" onclick="showPreview()">Preview</button>
                     </g:else>
                 </body>
             </html>
